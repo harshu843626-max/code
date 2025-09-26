@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dream Cart</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #cart-counter {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff6ec4;
+        }
+
+        .cart-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cart-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cart-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cart-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .cart-card h3 {
+            margin: 15px 0;
+            color: #444;
+        }
+
+        .cart-card p {
+            margin: 5px 0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .qty-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .qty-controls button {
+            padding: 5px 10px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #7873f5;
+            color: #fff;
+            transition: 0.2s;
+        }
+
+        .qty-controls button:hover {
+            background: #ff6ec4;
+        }
+
+        .add-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .buy-now {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background: #ff6ec4;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .buy-now:hover {
+            background: #7873f5;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🛍️ Dream Cart 🛍️</h1>
+    <p id="cart-counter">Cart: 0 items</p>
+
+    <div class="cart-gallery">
+        <div class="cart-card" data-price="1899">
+            <img src="https://pngimg.com/uploads/lipstick/lipstick_PNG76274.png" alt="Luxury Lipstick">
+            <h3>Luxury Lipstick</h3>
+            <p>Color: Red Velvet</p>
+            <p class="price">&#8377;1,899/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="cart-card" data-price="2599">
+            <img src="https://image.made-in-china.com/2f0j00kNMVvjtdQSpB/Luxury-Perfume-Bottle-Parfum-Bottle-100ml-Glass-Perfume-Bottle-with-Fancy-Design.jpg"
+                alt="Perfume">
+            <h3>Perfume</h3>
+            <p>Fragrance: Blooming Flowers</p>
+            <p class="price">&#8377;2,599/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="cart-card" data-price="1299">
+            <img src="https://m.media-amazon.com/images/I/81gASdhI5pL._AC_.jpg" alt="Makeup Brushes Set">
+            <h3>Makeup Brushes Set</h3>
+            <p>Includes 10 brushes</p>
+            <p class="price">&#8377;1,299/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="cart-card" data-price="5999">
+            <img src="https://glassbottlecustom.com/wp-content/uploads/2025/03/Premium-Glass-Bottle-Skincare-Packaging-1.jpg"
+                alt="Cosmetic Bottles">
+            <h3>Cosmetic Bottles</h3>
+            <p>Includes 3 bottles</p>
+            <p class="price">&#8377;5,999/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="cart-card" data-price="799">
+            <img src="https://m.media-amazon.com/images/I/81yOYt658kL._AC_SL1500_.jpg" alt="Sketch Pencil Set">
+            <h3>Sketch Pencil Set</h3>
+            <p>Includes 10 pencils</p>
+            <p class="price">&#8377;799/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="cart-card" data-price="7900">
+            <img src="https://offimart.com/6509-large_default/camel-artist-water-colour-tubes-5ml-24-shades.jpg"
+                alt="Watercolor Kit">
+            <h3>Watercolor Kit</h3>
+            <p>24 Watercolour with pencil</p>
+            <p class="price">&#8377;7,900/-</p>
+            <div class="qty-controls">
+                <button class="decrease">-</button>
+                <span class="qty">0</span>
+                <button class="increase">+</button>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+
+    <button class="buy-now">Buy Now</button>
+    <p id="message"></p>
+
+    <script>
+        const cards = document.querySelectorAll('.cart-card');
+        const message = document.getElementById('message');
+        const cartCounter = document.getElementById('cart-counter');
+        let totalItems = 0;
+
+        function updateCartCounter() {
+            cartCounter.textContent = `Cart: ${totalItems} item${totalItems !== 1 ? 's' : ''}`;
+        }
+
+        cards.forEach(card => {
+            const qtySpan = card.querySelector('.qty');
+            const increaseBtn = card.querySelector('.increase');
+            const decreaseBtn = card.querySelector('.decrease');
+            const addBtn = card.querySelector('.add-btn');
+            const price = parseFloat(card.dataset.price);
+
+            increaseBtn.addEventListener('click', () => {
+                qtySpan.textContent = parseInt(qtySpan.textContent) + 1;
+            });
+
+            decreaseBtn.addEventListener('click', () => {
+                let current = parseInt(qtySpan.textContent);
+                if (current > 0) qtySpan.textContent = current - 1;
+            });
+
+            addBtn.addEventListener('click', () => {
+                let qty = parseInt(qtySpan.textContent);
+                if (qty > 0) {
+                    totalItems += qty;
+                    updateCartCounter();
+                    message.textContent = `${qty} x ${card.querySelector('h3').textContent} added to cart.`;
+                    qtySpan.textContent = 0; // reset quantity after adding
+                } else {
+                    message.textContent = "Please select quantity before adding to cart.";
+                }
+            });
+        });
+
+        // Simplified Buy Now button: only show thank-you message
+        document.querySelector('.buy-now').addEventListener('click', () => {
+            message.textContent = "A dream is just a dream for now, but I hope all your dreams come true soon! And if you click the button, just check what it says—'dream is dream' 😂😂😂. Looks like some dreams can only be fulfilled in dreams… at least for now!Sorry, I was caught up with some urgent work, so I couldn’t do it on time. I didn’t forget—it’s just my usual way, so I’m a little late. Anyway, happy birthday!"
+        });
+    </script>
+
+</body>
+
+</html>
